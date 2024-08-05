@@ -6,5 +6,6 @@ class ColorCollection {
   static Color transparent = Colors.transparent;
   static Color offWhite = const Color(0xFFFAF9F6);
   static Color platinum = const Color(0xFFE9E4E9);
-  static Color persianRed = const Color(0xFFD52D30);
+  static Color red = const Color(0xFFED1C24);
+  static Color lightBlue = const Color.fromARGB(255, 7, 65, 147);
 }
