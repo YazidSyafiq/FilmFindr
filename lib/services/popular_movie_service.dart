@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:filmfindr/constants/api_key.dart';
-import 'package:filmfindr/models/now_playing_response_model.dart';
+import 'package:filmfindr/models/popular_movie_response_model.dart';
 import 'package:filmfindr/utils/base_url.dart';
 
-class NowPlayingService {
+class PopularMovieService {
   static Dio dio = Dio();
 
-  static Future<NowPlayingResponseModel> getNowPlaying() async {
+  static Future<PopularMovieResponseModel> getPopularMovie() async {
     try {
       String token = ApiKey.token;
       final response = await dio.get(
-        '${BaseUrl.baseUrl}movie/now_playing',
+        '${BaseUrl.baseUrl}movie/popular',
         options: Options(
           headers: {
             'Authorization': 'Bearer $token',
@@ -19,7 +19,7 @@ class NowPlayingService {
         ),
       );
 
-      return NowPlayingResponseModel.fromJson(response.data);
+      return PopularMovieResponseModel.fromJson(response.data);
     } on DioException catch (e) {
       throw e.toString();
     }
