@@ -1,5 +1,6 @@
 import 'package:filmfindr/constants/color_constant.dart';
 import 'package:filmfindr/controllers/favorite_controller.dart';
+import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,11 +11,17 @@ class ButtonFavoriteWatchListDownloadWidget extends StatelessWidget {
     required this.favoriteController,
     required this.watchListController,
     required this.movieId,
+    required this.saveImageController,
+    required this.urlPoster,
+    required this.movieName,
   });
 
   final int movieId;
   final FavoriteController favoriteController;
   final WatchListController watchListController;
+  final SaveImageController saveImageController;
+  final String urlPoster;
+  final String movieName;
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +122,13 @@ class ButtonFavoriteWatchListDownloadWidget extends StatelessWidget {
           const SizedBox(
             width: 4,
           ),
-          InkWell(
-            onTap: () {},
+          GestureDetector(
+            onTap: () {
+              saveImageController.saveImage(
+                urlPoster,
+                movieName,
+              );
+            },
             child: Container(
               height: 30,
               width: 30,

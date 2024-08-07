@@ -1,6 +1,7 @@
 import 'package:filmfindr/constants/color_constant.dart';
 import 'package:filmfindr/constants/text_style_constant.dart';
 import 'package:filmfindr/controllers/favorite_controller.dart';
+import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
 import 'package:filmfindr/pages/watch_list/watch_list_empty.dart';
 import 'package:filmfindr/widgets/button_favorite_watch_list_download_widget.dart';
@@ -15,6 +16,7 @@ class WatchListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     FavoriteController favoriteController = Get.put(FavoriteController());
     WatchListController watchListController = Get.put(WatchListController());
+    SaveImageController saveImageController = Get.put(SaveImageController());
 
     return Scaffold(
       backgroundColor: ColorCollection.background,
@@ -90,6 +92,9 @@ class WatchListPage extends StatelessWidget {
                               favoriteController: favoriteController,
                               watchListController: watchListController,
                               movieId: watchListMovie.id ?? 0,
+                              saveImageController: saveImageController,
+                              urlPoster: watchListMovie.posterPath ?? '',
+                              movieName: watchListMovie.title ?? '',
                             )
                           ],
                         ),

@@ -10,4 +10,16 @@ class SnackbarStyleConstant {
       colorText: ColorCollection.offWhite,
     );
   }
+
+  static void successSnackBar(String message) {
+    Get.snackbar(
+      'Success',
+      message,
+      backgroundColor: ColorCollection.platinum.withOpacity(0.75),
+      colorText: ColorCollection.background,
+      duration: const Duration(
+        seconds: 3,
+      ),
+    );
+  }
 }

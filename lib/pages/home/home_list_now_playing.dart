@@ -1,5 +1,6 @@
 import 'package:filmfindr/controllers/favorite_controller.dart';
 import 'package:filmfindr/controllers/now_playing_controller.dart';
+import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
 import 'package:filmfindr/pages/home/home_now_playing_item.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class HomeListNowPlaying extends StatelessWidget {
     NowPlayingController nowPlayingController = Get.put(NowPlayingController());
     FavoriteController favoriteController = Get.put(FavoriteController());
     WatchListController watchListController = Get.put(WatchListController());
+    SaveImageController saveImageController = Get.put(SaveImageController());
 
     return Obx(
       () {
@@ -27,6 +29,8 @@ class HomeListNowPlaying extends StatelessWidget {
               watchListController: watchListController,
               urlPoster: nowPlaying.posterPath ?? '',
               movieId: nowPlaying.id ?? 0,
+              saveImageController: saveImageController,
+              movieName: nowPlaying.title ?? '',
             );
           },
         );

@@ -1,5 +1,6 @@
 import 'package:filmfindr/constants/color_constant.dart';
 import 'package:filmfindr/controllers/favorite_controller.dart';
+import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
 import 'package:filmfindr/widgets/button_favorite_watch_list_download_widget.dart';
 import 'package:filmfindr/widgets/poster_widget.dart';
@@ -12,12 +13,16 @@ class HomeNowPlayingItem extends StatelessWidget {
     required this.favoriteController,
     required this.watchListController,
     required this.movieId,
+    required this.saveImageController,
+    required this.movieName,
   });
 
   final String urlPoster;
   final int movieId;
   final FavoriteController favoriteController;
   final WatchListController watchListController;
+  final SaveImageController saveImageController;
+  final String movieName;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +49,9 @@ class HomeNowPlayingItem extends StatelessWidget {
               favoriteController: favoriteController,
               watchListController: watchListController,
               movieId: movieId,
+              saveImageController: saveImageController,
+              urlPoster: urlPoster,
+              movieName: movieName,
             )
           ],
         ),
