@@ -3,7 +3,9 @@ import 'package:filmfindr/constants/text_style_constant.dart';
 import 'package:filmfindr/controllers/favorite_controller.dart';
 import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
+import 'package:filmfindr/pages/detail/detail_page.dart';
 import 'package:filmfindr/pages/watch_list/watch_list_empty.dart';
+import 'package:filmfindr/widgets/button_back_widget.dart';
 import 'package:filmfindr/widgets/button_favorite_watch_list_download_widget.dart';
 import 'package:filmfindr/widgets/poster_widget.dart';
 import 'package:flutter/material.dart';
@@ -27,20 +29,7 @@ class WatchListPage extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: ColorCollection.background,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          style: ButtonStyle(
-            overlayColor: WidgetStatePropertyAll(
-              ColorCollection.lightBlue,
-            ),
-          ),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: ColorCollection.offWhite,
-          ),
-        ),
+        leading: const ButtonBackWidget(),
       ),
       body: SafeArea(
         child: Obx(
@@ -72,7 +61,13 @@ class WatchListPage extends StatelessWidget {
                     final watchListMovie = watchListController.watchList[index];
 
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.off(
+                          () => DetailPage(
+                            movieId: watchListMovie.id ?? 0,
+                          ),
+                        );
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           color: ColorCollection.lightBlue,

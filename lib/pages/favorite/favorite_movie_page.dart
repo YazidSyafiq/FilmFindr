@@ -3,6 +3,7 @@ import 'package:filmfindr/constants/text_style_constant.dart';
 import 'package:filmfindr/controllers/favorite_controller.dart';
 import 'package:filmfindr/controllers/save_image_controller.dart';
 import 'package:filmfindr/controllers/watch_list_controller.dart';
+import 'package:filmfindr/pages/detail/detail_page.dart';
 import 'package:filmfindr/pages/favorite/favorite_movie_empty.dart';
 import 'package:filmfindr/widgets/button_favorite_watch_list_download_widget.dart';
 import 'package:filmfindr/widgets/poster_widget.dart';
@@ -73,7 +74,13 @@ class FavoriteMoviePage extends StatelessWidget {
                         favoriteController.favoriteMovie[index];
 
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.off(
+                          () => DetailPage(
+                            movieId: favoriteMovie.id ?? 0,
+                          ),
+                        );
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           color: ColorCollection.lightBlue,

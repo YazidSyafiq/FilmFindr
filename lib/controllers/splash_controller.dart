@@ -1,4 +1,4 @@
-import 'package:filmfindr/pages/home/home_page.dart';
+import 'package:filmfindr/pages/bottom_navigation/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -15,7 +15,9 @@ class SplashController extends GetxController {
       () {
         // Mengatur navigasi, setelah 3 detik akan diarahkan ke home page
         Get.offAll(
-          () => const HomePage(),
+          () => const BottomNavigationBarPage(
+            index: 0,
+          ),
         );
       },
     );
