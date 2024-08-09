@@ -15,6 +15,7 @@ class FavoriteMovieEmpty extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Menampilkan gambar icon favorite movie kosong
           Center(
             child: Image.asset(
               AssetsCollection.favoriteEmpty,
@@ -24,6 +25,7 @@ class FavoriteMovieEmpty extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
+          // Menampilkan teks "Film Favorit Kosong" dengan gaya teks title
           Text(
             'Film Favorit Kosong',
             style: TextStyleCollection.title,
@@ -31,6 +33,7 @@ class FavoriteMovieEmpty extends StatelessWidget {
           const SizedBox(
             height: 4,
           ),
+          // Menampilkan deskripsi mengenai favorite movie kosong
           Text(
             'Anda belum menambahkan film ke daftar favorit. Ayo tambahkan segera untuk pengalaman yang lebih menarik!',
             style: TextStyleCollection.subtitle.copyWith(

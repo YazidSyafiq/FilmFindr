@@ -6,6 +6,7 @@ import 'package:filmfindr/utils/base_url.dart';
 class ProfileService {
   static Dio dio = Dio();
 
+  // service untuk mengambil data profile dari API
   static Future<DetailProfileResponseModel> getProfile() async {
     try {
       String token = ApiKey.token;

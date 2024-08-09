@@ -13,6 +13,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Membuat instance dari ProfileController untuk mengelola data profil
     ProfileController profileController = Get.put(
       ProfileController(),
     );
@@ -22,7 +23,9 @@ class ProfilePage extends StatelessWidget {
       body: SafeArea(
         child: Obx(
           () {
+            // Memeriksa apakah data profil sedang dimuat atau tidak
             if (profileController.isLoadingProfile.value) {
+              // Menampilkan animasi loading jika data profil sedang dimuat
               return Center(
                 child: SizedBox(
                   width: 30,
@@ -33,9 +36,11 @@ class ProfilePage extends StatelessWidget {
                 ),
               );
             } else {
+              // Menampilkan data profil setelah selesai dimuat
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // Avatar user
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 48,
@@ -55,6 +60,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // Nama
                   Text(
                     profileController.profile.value.name ?? '',
                     style: TextStyleCollection.title,
@@ -62,6 +68,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(
                     height: 4,
                   ),
+                  // Username
                   Text(
                     profileController.profile.value.username ?? '',
                     style: TextStyleCollection.subtitle,
@@ -69,6 +76,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(
                     height: 48,
                   ),
+                  // Button navigasi ke halaman favorite movie
                   GestureDetector(
                     onTap: () {
                       Get.to(
@@ -119,6 +127,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(
                     height: 16,
                   ),
+                  // Button navigasi ke halaman watch list
                   GestureDetector(
                     onTap: () {
                       Get.to(

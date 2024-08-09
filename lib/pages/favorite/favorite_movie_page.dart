@@ -15,6 +15,7 @@ class FavoriteMoviePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Menginisialisasi controller yang diperlukan
     FavoriteController favoriteController = Get.put(FavoriteController());
     WatchListController watchListController = Get.put(WatchListController());
     SaveImageController saveImageController = Get.put(SaveImageController());
@@ -46,6 +47,7 @@ class FavoriteMoviePage extends StatelessWidget {
       body: SafeArea(
         child: Obx(
           () {
+            // Menampilkan animasi loading saat data favorite movie dimuat
             if (favoriteController.isLoadingFavorite.value) {
               return Center(
                 child: SizedBox(
@@ -56,9 +58,13 @@ class FavoriteMoviePage extends StatelessWidget {
                   ),
                 ),
               );
-            } else if (favoriteController.favoriteMovie.isEmpty) {
+            }
+            // Menampilkan halaman FavoriteMovieEmpty saat data favorite movie kosong
+            else if (favoriteController.favoriteMovie.isEmpty) {
               return const FavoriteMovieEmpty();
-            } else {
+            }
+            // Menampilkan daftar movie dalam grid view jika favorite movie tidak kosong
+            else {
               return Padding(
                 padding: const EdgeInsets.all(16),
                 child: GridView.builder(
@@ -88,6 +94,7 @@ class FavoriteMoviePage extends StatelessWidget {
                         ),
                         child: Stack(
                           children: [
+                            // Menampilkan poster
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: PosterWidget(
@@ -96,6 +103,7 @@ class FavoriteMoviePage extends StatelessWidget {
                                 height: double.infinity,
                               ),
                             ),
+                            // Menampilkan tombol favorit, watch list, dan download
                             ButtonFavoriteWatchListDownloadWidget(
                               favoriteController: favoriteController,
                               watchListController: watchListController,

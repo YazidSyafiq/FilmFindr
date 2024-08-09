@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 class BottomNavbarController extends GetxController {
   RxInt selectedIndex = 0.obs;
 
+  // List page
   List<Widget> get optionPage => [
         const HomePage(),
         const ProfilePage(),
       ];
 
+  // Fungsi untuk get index page
   void getInitialIndex({required int index}) {
     selectedIndex.value = index;
   }

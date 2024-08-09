@@ -14,14 +14,18 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {
+  /// Constructor untuk 'DetailPage', menerima [movieId] sebagai parameter.
   const DetailPage({
     super.key,
     required this.movieId,
   });
+
+  /// id movie yang akan ditampilkan detailnya
   final int movieId;
 
   @override
   Widget build(BuildContext context) {
+    // Inisialisasi controller yang dibutuhkan untuk halaman detail.
     DetailMovieController detailMovieController = Get.put(
       DetailMovieController(movieId: movieId),
     );
@@ -29,6 +33,7 @@ class DetailPage extends StatelessWidget {
     WatchListController watchListController = Get.put(WatchListController());
     SaveImageController saveImageController = Get.put(SaveImageController());
 
+    // Setting agar ketika button back di device diklik, akan menavigasikan ke halaman Home (BottomNavigationBarPage dengan index 0)
     return PopScope(
       canPop: false,
       onPopInvoked: (isDetail) {
@@ -51,6 +56,7 @@ class DetailPage extends StatelessWidget {
           backgroundColor: ColorCollection.background,
           leading: ButtonBackWidget(
             onPressed: () {
+              // Ketika icon back diklik, akan menavigasikan ke halaman Home (BottomNavigationBarPage dengan index 0)
               Get.offAll(
                 () => const BottomNavigationBarPage(index: 0),
               );
@@ -59,6 +65,7 @@ class DetailPage extends StatelessWidget {
         ),
         body: Obx(
           () {
+            // Menampilkan loading jika data detail film sedang dimuat
             if (detailMovieController.isLoadingDetailMovie.value) {
               return Center(
                 child: SizedBox(
@@ -70,6 +77,7 @@ class DetailPage extends StatelessWidget {
                 ),
               );
             } else {
+              // Menampilkan detail film jika data sudah tersedia
               return SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -78,6 +86,7 @@ class DetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Menampilkan poster film
                       Center(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -98,6 +107,7 @@ class DetailPage extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
+                      // Tabel yang menampilkan informasi detail tentang film
                       Table(
                         columnWidths: const {
                           0: IntrinsicColumnWidth(),
@@ -175,6 +185,7 @@ class DetailPage extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
+                      // List horizontal dari film-film serupa
                       Container(
                         height: 250,
                         decoration: BoxDecoration(
@@ -203,6 +214,7 @@ class DetailPage extends StatelessWidget {
                                 ),
                                 child: Stack(
                                   children: [
+                                    // Menampilkan poster similar movie
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
                                       child: PosterWidget(
@@ -212,6 +224,7 @@ class DetailPage extends StatelessWidget {
                                         height: double.infinity,
                                       ),
                                     ),
+                                    // Menampilkan tombol favorit, watch list, dan download
                                     ButtonFavoriteWatchListDownloadWidget(
                                       favoriteController: favoriteController,
                                       watchListController: watchListController,

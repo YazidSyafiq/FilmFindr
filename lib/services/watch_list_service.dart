@@ -7,6 +7,7 @@ class WatchListService {
   static Dio dio = Dio();
   static String token = ApiKey.token;
 
+  // Service untuk mengambil data watch list dari API
   static Future<WatchListResponseModel> getWatchList() async {
     try {
       final response = await dio.get(
@@ -24,6 +25,7 @@ class WatchListService {
     }
   }
 
+  // Service untuk add atau remove watch list movie dari API
   static Future<void> addAndRemoveMovieFromWatchList(
       int movieId, bool isWatchList) async {
     await dio.post(

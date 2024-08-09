@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
+              // Menampilkan logo
               Padding(
                 padding: const EdgeInsets.only(
                   top: 16,
@@ -28,6 +29,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              // Bagian utama yang menampilkan daftar film (now playing dan popular)
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -40,6 +42,7 @@ class HomePage extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
+                      // Menampilkan teks deskripsi
                       Text(
                         'Referensi film terlengkap, temukan film-film terbaru dan menarik di sini',
                         style: TextStyleCollection.subtitle,
@@ -62,6 +65,7 @@ class HomePage extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
+                      // Widget untuk menampilkan now playing movie dalam bentuk list horizontal
                       Container(
                         height: 250,
                         decoration: BoxDecoration(
@@ -86,6 +90,7 @@ class HomePage extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
+                      // Widget untuk menampilkan daftar popular movie dalam bentuk grid
                       const HomeGridPopularMovie(),
                     ],
                   ),

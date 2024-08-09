@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
 class SaveImageController extends GetxController {
+  // Fungsi untuk menyimpan atau mendownload poster atau image movie
   void saveImage(String urlPoster, String movieName) async {
     try {
       final directory = await getExternalStorageDirectory();

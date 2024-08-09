@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 class SaveImageService {
   static Dio dio = Dio();
 
+  // Service untuk mendowload atau save image
   static Future<void> saveImage(String urlPoster, String filePath) async {
     try {
       String imageUrl =

@@ -7,12 +7,14 @@ class ProfileController extends GetxController {
   RxBool isLoadingProfile = false.obs;
   Rx<DetailProfileResponseModel> profile = DetailProfileResponseModel().obs;
 
+  // Menginisialisasi controller dengan memanggil 'getProfile()'
   @override
   void onInit() {
     getProfile();
     super.onInit();
   }
 
+  // Fungsi untuk mendapatkan data profile
   void getProfile() async {
     isLoadingProfile.value = true;
     try {

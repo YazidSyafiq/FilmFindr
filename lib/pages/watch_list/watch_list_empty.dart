@@ -15,6 +15,7 @@ class WatchListEmpty extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Menampilkan gambar icon watch list kosong
           Center(
             child: Image.asset(
               AssetsCollection.watchListEmpty,
@@ -24,6 +25,7 @@ class WatchListEmpty extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
+          // Menampilkan teks "Watch List Kosong" dengan gaya teks title
           Text(
             'Watch List Kosong',
             style: TextStyleCollection.title,
@@ -31,6 +33,7 @@ class WatchListEmpty extends StatelessWidget {
           const SizedBox(
             height: 4,
           ),
+          // Menampilkan deskripsi mengenai watch list kosong
           Text(
             'Anda belum menandai film yang akan anda tonton. Segera masukkan film-film terbaik ke dalam watch list anda!',
             style: TextStyleCollection.subtitle.copyWith(

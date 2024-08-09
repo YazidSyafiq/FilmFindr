@@ -12,12 +12,14 @@ class DetailMovieController extends GetxController {
   Rx<DetailMovieResponseModel> detailMovie = DetailMovieResponseModel().obs;
   RxList<SimilarMovieModel> similarMovie = <SimilarMovieModel>[].obs;
 
+  // Menginisialisasi controller dengan memanggil 'fetchDetailMovie()'
   @override
   void onInit() {
     fetchDetailMovie(movieId: movieId);
     super.onInit();
   }
 
+  // Fungsi untuk mendapatkan data detail movie dan similar movie
   void fetchDetailMovie({required int movieId}) async {
     isLoadingDetailMovie.value = true;
     detailMovie.value = DetailMovieResponseModel();

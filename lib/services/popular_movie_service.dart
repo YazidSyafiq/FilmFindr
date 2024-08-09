@@ -6,6 +6,7 @@ import 'package:filmfindr/utils/base_url.dart';
 class PopularMovieService {
   static Dio dio = Dio();
 
+  // Service untuk mengambil data popular movie dari API
   static Future<PopularMovieResponseModel> getPopularMovie() async {
     try {
       String token = ApiKey.token;

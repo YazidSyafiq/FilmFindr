@@ -8,6 +8,7 @@ class DetailMovieService {
   static Dio dio = Dio();
   static String token = ApiKey.token;
 
+  // Service untuk mengambil data detail movie dari API
   static Future<DetailMovieResponseModel> getDetailMovie(
       {required int movieId}) async {
     try {
@@ -27,6 +28,7 @@ class DetailMovieService {
     }
   }
 
+  // Service untuk mengambil data similar movie dari API
   static Future<SimilarMovieResponseModel> getSimilarMovie(
       {required int movieId}) async {
     try {

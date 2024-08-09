@@ -11,6 +11,7 @@ class HomeGridPopularMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Menginisialisasi controller yang diperlukan
     PopularMovieController popularMovieController =
         Get.put(PopularMovieController());
     FavoriteController favoriteController = Get.put(FavoriteController());
@@ -32,6 +33,7 @@ class HomeGridPopularMovie extends StatelessWidget {
           itemBuilder: (context, index) {
             final popularMovie = popularMovieController.popularMovie[index];
 
+            // widget untuk menampilkan item movie
             return HomePopularMovieItem(
               urlPoster: popularMovie.posterPath ?? '',
               favoriteController: favoriteController,

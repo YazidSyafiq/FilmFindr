@@ -1,8 +1,8 @@
-// Class TextStyle untuk menampung style teks yang digunakan dalam aplikasi
 import 'package:filmfindr/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Class TextStyle untuk menampung style teks yang digunakan dalam aplikasi
 class TextStyleCollection {
   static TextStyle subtitle = GoogleFonts.poppins(
     fontSize: 14,

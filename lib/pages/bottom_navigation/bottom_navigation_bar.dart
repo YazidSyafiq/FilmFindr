@@ -14,9 +14,11 @@ class BottomNavigationBarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Inisialisasi controller untuk bottom navigation bar
     BottomNavbarController bottomNavbarController =
         Get.put(BottomNavbarController());
 
+    // Callback untuk mengatur indeks awal ketika halaman pertama kali dibangun
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         bottomNavbarController.getInitialIndex(index: index);

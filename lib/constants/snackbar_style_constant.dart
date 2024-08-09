@@ -1,6 +1,7 @@
 import 'package:filmfindr/constants/color_constant.dart';
 import 'package:get/get.dart';
 
+// Class untuk menampung style snackbar
 class SnackbarStyleConstant {
   static void errorSnackBar(String message) {
     Get.snackbar(

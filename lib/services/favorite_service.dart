@@ -7,6 +7,7 @@ class FavoriteService {
   static Dio dio = Dio();
   static String token = ApiKey.token;
 
+  // Service untuk mengambil data favorite movie dari API
   static Future<FavoriteMovieResponseModel> getFavoriteMovie() async {
     try {
       final response = await dio.get(
@@ -24,6 +25,7 @@ class FavoriteService {
     }
   }
 
+  // Service untuk add atau remove favorite movie dari API
   static Future<void> addAndRemoveFavorite(int movieId, bool isFavorite) async {
     await dio.post(
       '${BaseUrl.baseUrl}account/21418558/favorite',

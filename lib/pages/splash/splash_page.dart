@@ -10,11 +10,10 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Memanggil StatusBarSetup.statusbar dari folder constant
-    // Untuk mengatur warna statusbar
+    // Mengatur warna status bar menggunakan StatusBarSetup dari folder constant
     StatusBarSetup.statusbar;
 
-    // Memanggil controller splash
+    // Menginisialisasi controller SplashController untuk manajemen data pada splash screen
     Get.put(SplashController());
 
     return Scaffold(

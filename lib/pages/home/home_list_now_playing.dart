@@ -11,6 +11,7 @@ class HomeListNowPlaying extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Menginisialisasi controller yang diperlukan
     NowPlayingController nowPlayingController = Get.put(NowPlayingController());
     FavoriteController favoriteController = Get.put(FavoriteController());
     WatchListController watchListController = Get.put(WatchListController());
@@ -24,6 +25,8 @@ class HomeListNowPlaying extends StatelessWidget {
               nowPlayingController.listNowPlaying.take(6).toList().length,
           itemBuilder: (context, index) {
             final nowPlaying = nowPlayingController.listNowPlaying[index];
+
+            // Widget untuk menampilkan item movie
             return HomeNowPlayingItem(
               favoriteController: favoriteController,
               watchListController: watchListController,

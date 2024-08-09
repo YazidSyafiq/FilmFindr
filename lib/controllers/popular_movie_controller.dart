@@ -7,12 +7,14 @@ class PopularMovieController extends GetxController {
   RxBool isLoadingPopularMovie = false.obs;
   RxList<PopularMovieModel> popularMovie = <PopularMovieModel>[].obs;
 
+  // Menginisialisasi controller dengan memanggil 'fetchPopularMovie'
   @override
   void onInit() {
     fetchPopularMovie();
     super.onInit();
   }
 
+  // Fungsi untuk mendapatkan data popular movie
   void fetchPopularMovie() async {
     isLoadingPopularMovie.value = true;
     popularMovie.clear();

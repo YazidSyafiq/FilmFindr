@@ -6,6 +6,7 @@ import 'package:filmfindr/utils/base_url.dart';
 class NowPlayingService {
   static Dio dio = Dio();
 
+  // Service untuk mengambil data now playing movie dari API
   static Future<NowPlayingResponseModel> getNowPlaying() async {
     try {
       String token = ApiKey.token;

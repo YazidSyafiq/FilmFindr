@@ -8,12 +8,14 @@ class FavoriteController extends GetxController {
   RxList<FavoriteMovieModel> favoriteMovie = <FavoriteMovieModel>[].obs;
   RxMap<int, bool> isLoadingItem = <int, bool>{}.obs;
 
+  // Menginisialisasi controller dengan memanggil 'fetchFavoriteMovie()'
   @override
   void onInit() {
     fetchFavoriteMovie();
     super.onInit();
   }
 
+  // Fungsi untuk mendapatkan data favorite movie
   void fetchFavoriteMovie() async {
     isLoadingFavorite.value = true;
     favoriteMovie.clear();
@@ -29,6 +31,7 @@ class FavoriteController extends GetxController {
     }
   }
 
+  // Fungsi untuk add atau remove movie dari list favorite movie
   void addRemoveFavorite(int movieId) async {
     isLoadingItem[movieId] = true;
     try {

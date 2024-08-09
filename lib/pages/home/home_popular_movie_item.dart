@@ -30,6 +30,7 @@ class HomePopularMovieItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Navigasi ke DetailPage ketika item dipilih
         Get.to(
           () => DetailPage(
             movieId: movieId,
@@ -43,6 +44,7 @@ class HomePopularMovieItem extends StatelessWidget {
         ),
         child: Stack(
           children: [
+            // Menampilkan poster film
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: PosterWidget(
@@ -51,6 +53,7 @@ class HomePopularMovieItem extends StatelessWidget {
                 height: double.infinity,
               ),
             ),
+            // Menampilkan tombol favorit, watch list, dan download
             ButtonFavoriteWatchListDownloadWidget(
               favoriteController: favoriteController,
               watchListController: watchListController,

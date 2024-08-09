@@ -7,12 +7,14 @@ class NowPlayingController extends GetxController {
   RxBool isLoadingNowPlaying = false.obs;
   RxList<NowPlayingModel> listNowPlaying = <NowPlayingModel>[].obs;
 
+  // Menginisialisasi controller dengan memanggil 'fetchNowPlaying'
   @override
   void onInit() {
     fetchNowPlaying();
     super.onInit();
   }
 
+  // Fungsi untuk mendapatkan data now playing
   void fetchNowPlaying() async {
     isLoadingNowPlaying.value = true;
     listNowPlaying.clear();

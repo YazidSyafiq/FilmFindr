@@ -8,12 +8,14 @@ class WatchListController extends GetxController {
   RxList<WatchListModel> watchList = <WatchListModel>[].obs;
   RxMap<int, bool> isLoadingItem = <int, bool>{}.obs;
 
+  // Menginisialisasi controller dengan memanggil 'fetchFavoriteMovie()'
   @override
   void onInit() {
     fetchWatchList();
     super.onInit();
   }
 
+  // Fungsi untuk mengambil data watch list
   void fetchWatchList() async {
     isLoadingWatchList.value = true;
     watchList.clear();
@@ -29,6 +31,7 @@ class WatchListController extends GetxController {
     }
   }
 
+  // Fungsi untuk add atau remove movie dari watch list
   void addRemoveWatchList(int movieId) async {
     isLoadingItem[movieId] = true;
     try {
